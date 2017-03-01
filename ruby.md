@@ -1,20 +1,33 @@
 # Ruby
 
+
+## Naming
+
+* use `snake_case` for methods and variables.
+
+* use `CamelCase` for classes and modules.
+
+* Constants are written in all uppercase with underscores to separate words. like: `A_CONST`
+
+
 ## Syntax
 
-* Never use `for`, unless you know exactly why. You can use `each` instead of `for`.
+* Always use `&&` and `||` instead of `and` and `or` keywords.
+
+* Do not use parentheses around the condition of an `if/unless/while`.
 
   ```ruby
-  arr = [1, 2, 3]
-
   # bad
-  for element in arr do
-    puts element
+  if (x > 5)
+    # do something
   end
-
+  
   # good
-  arr.each { |element| puts element }
+  if x > 5
+    # do something
+  end
   ```
+
 
 * Never use `then` for multi-line `if/unless`
   
@@ -30,19 +43,6 @@
   end
   ```
 
-* Use ternary operator (`?:`) over `if/then/else/end` constructs for single line conditions.
-
-  ```ruby
-  # bad
-  result = if some_condition then something else something_else end
-
-  # good
-  result = some_condition ? something : something_else
-  ```
-
-* Always use `&&` and `||` instead of `and` and `or` keywords.
-
-* Avoid multi-line `?:`(ternary operator), use `if/unless` instead.
 
 * For single `if/unless` bolck write it in a single line.
 
@@ -55,6 +55,7 @@
   # good
   do_something if some_condition
   ```
+
 
 * Never use `unless` with `else`. Write it inside `if-else` block
   
@@ -74,19 +75,45 @@
   end
   ```
 
-* Do not use parentheses around the condition of an `if/unless/while`.
+
+* Use ternary operator (`?:`) over `if/then/else/end` constructs for single line conditions.
 
   ```ruby
   # bad
-  if (x > 5)
-    # do something
+  result = if some_condition then something else something_else end
+
+  # good
+  result = some_condition ? something : something_else
+  ```
+
+
+* Avoid multi-line `?:`(ternary operator), use `if/unless` instead.
+
+* Never use `for`, unless you know exactly why. You can use `each` instead of `for`.
+
+  ```ruby
+  arr = [1, 2, 3]
+
+  # bad
+  for element in arr do
+    puts element
   end
+
+  # good
+  arr.each { |element| puts element }
+  ```
+
+
+* use `%w` freely.
+
+  ```ruby
+  # bad
+  arr = ["one", "two", "three"]
   
   # good
-  if x > 5
-    # do something
-  end
+  arr = %w(one two three)
   ```
+
 
 * Avoid `return` where not required.
  
@@ -102,22 +129,37 @@
   end
   ```
 
-* use `%w` freely.
+
+* Don't use an empty line at the beginning or end of methods, blocks or conditionals.
+  Use an empty line between methods, blocks and conditionals.
 
   ```ruby
   # bad
-  arr = ["one", "two", "three"]
-  
+  def hello
+
+    puts "Hello world"
+  end
+
   # good
-  arr = %w(one two three)
+  def hello
+    puts "Hello world"
+  end
+
+  # bad
+  [2, 3, 4].map{ |x| x + 2 }
+  if array.empty?
+    # do some thing
+  end
+
+  # good
+  [2, 3, 4].map{ |x| x + 2 }
+
+  if array.empty?
+    # do some thing
+  end
   ```
 
-## Naming
 
-* use `snake_case` for methods and variables.
+* Use spaces around operators, after commas, colons and semicolons, around `{` and before `}`.
 
-* use `CamelCase` for classes and modules.
-
-* Constants are written in all uppercase with underscores to separate words. like: `A_CONST`
-
-  
+* No spaces after `(`, `[` No spaces before `]`, `)`
