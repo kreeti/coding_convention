@@ -12,6 +12,8 @@
 
 * Create Pull Request only after finish the task competely of a particular story.
 
+* Do not amend your commit if pull request is already created. If there is more than 2 commits , squash them.
+
 * Do not change anything in master branch, always create seperate branch.
 
 * Rebase frequently to incorporate upstream changes.
@@ -25,3 +27,11 @@
 * Do not upload credentials files or any secret file in git, add them in `.gitignore`
 
 * Always create new branch from master.
+
+* Always take pull from master branch before starting your work.
+
+* Use 'git diff' to see what changes you have done.
+
+* To work on different branch which is not your local branch , you have to retrack it. For this go to your master branch then use 'git fetch -p origin'
+
+* Delete unnecessary local branches.
