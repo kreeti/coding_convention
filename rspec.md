@@ -25,7 +25,7 @@
 
  ```
 
-##USE SUBJECT 
+## USE SUBJECT 
 
  * if you are having several tests related to same subject use subject{} to make the code DRY
 
