@@ -24,6 +24,7 @@
    end 
 
  ```
+  * When describing a context, start its description with "when" or "with".
 
 ## USE SUBJECT 
 
@@ -72,6 +73,17 @@
 ## Keep your description short
  * A spec description should never be longer than 40 characters. If this happens you should split it using a context.
 
+ ```
+ #bad
+    it 'has 422 status code if an unexpected params will be added' do
+
+ #good
+     context 'when not valid' do
+       it { is_expected.to respond_with 422 }
+     end
+
+ ```
+
 ## USE let and let!
   * When you have to assign a variable instead of using a before block to create an instance variable, use let.
 
@@ -84,5 +96,34 @@
       expect(resource.type_id).to equal(type.id)
     end
   end
+
+  ```
+
+## expect vs should syntax
+  * always use expect synax instead of should syntax
+
+  ```
+  #bad
+    it 'creates a resource' do
+      response.should respond_with_content_type(:json)
+    end
+
+  #good
+    it 'creates a resource' do
+      expect(response).to respond_with_content_type(:json)
+    end
+
+   ``` 
+## create only data you need
+  * only create required data otherwise test suite will become heavy to run
+
+  ```
+   #bad
+   describe "User" do
+     describe ".top" do
+       before { FactoryGirl.create_list(:user, 3) }
+       it { expect(User.top(2)).to have(2).item }
+     end
+   end
 
   ```
