@@ -12,7 +12,7 @@
 
 * Use 2 space indentation.
 
-* Do not make any spalling mistakes or grammar mistakes. Use proper english words.
+* Do not make any spelling mistakes or grammar mistakes. Use proper english words.
 
 * put space if needs. like- `<% if current_user %>`(correct) `<%if current_user%>`(wrong).
  Another example: `"hello"` (correct) `" hello "` (wrong)
@@ -87,6 +87,8 @@
 * Name of the helper(or variable/funcation/scope) should reflect its purpose.
 
 * Try to avoid comment messages unless the code is too complicated
+
+* Always use lastest syntax.
 
 ## Bundler
 
@@ -266,6 +268,16 @@
   ```
 * Remove n + 1 query problem from all places in your project.
 
+* Your code should be precise. Like, use flash in single line.
+  ```ruby
+  #bad
+  redirect_to users_path
+  flash[:notice] = "User successfully created."
+
+  #good
+  redirect_to users_path, flash: { success: "User successfully created." }
+  ```
+
 ## Model
 
 * Write your model simple and well formated.
@@ -303,3 +315,17 @@
   ```
 
 * Choose a proper name for methods, scopes etc.
+
+## Views
+
+* Please do not use inline style.
+
+* Try to avoid html_safe. Instead of using this - link_to("<span>Add</span>".html_safe, new_user_path(@user), class: "btn") ,  we should use link_to block.
+
+  ```erb
+  <% link_to(new_user_path(@user), class: "btn") do %>
+    <span>Add</span>
+  <% end %>
+  ```
+
+* Try to use partial instead of writing same code multiple time.
