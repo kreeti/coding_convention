@@ -79,7 +79,7 @@
       "name": "Xyz"
     };
   }
-
+* whatever pattern you follow to place the braces, same pattern should be followed in all the places through-out the project
 
 * The closing brace should be on the same indent as the original function call.
 
@@ -97,7 +97,7 @@
     };
   }
 
-* Use ternary operator (`?:`) over `if/else` constructs for single line conditions.
+* better to use  `if/else` conditions over other ternary conditions though it is small.
 
 * Don't use an empty line at the beginning or end of methods, blocks or conditionals.
   Use an empty line between methods, blocks and conditionals.
